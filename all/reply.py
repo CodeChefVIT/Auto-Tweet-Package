@@ -21,7 +21,7 @@ def check(api,keywords,since_id):
         if any(keyword in tweet.text.lower() for keyword in keywords):
             logger.info("answering to {}".format(tweet.user.name))
             if not tweet.user.following():
-            	tweet.uesr.follow()
+            	tweet.user.follow()
 
     		api.update_status(status="please contact us through direct message",in_reply_to_status_id=tweet.id,)
 
