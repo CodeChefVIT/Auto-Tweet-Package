@@ -17,11 +17,11 @@ def check(api,keywords,since_id):
 	for tweet in tweepy.Cursor(api.mentions_timeline,since_id=since_id).items():
 		new = max(tweet.id,new)
 		if tweet.in_reply_to_status_id is not None:
-            continue
+                	continue
         if any(keyword in tweet.text.lower() for keyword in keywords):
             logger.info("answering to {}".format(tweet.user.name))
             if not tweet.user.following():
-            	tweet.uesr.follow()
+            	tweet.user.follow()
 
     		api.update_status(status="please contact us through direct message",in_reply_to_status_id=tweet.id,)
 
